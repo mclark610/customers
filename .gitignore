@@ -1,0 +1,8 @@
+### misc ###
+customers.iml
+.idea
+.buildpath
+.project
+.htpasswd
+.db_info.txt
+
