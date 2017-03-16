@@ -1,8 +1,4 @@
 <?php 
-    //require('Model.php');
-    //require('Customer.php');
-
-
 class UserModel extends Model {
 
     public function Index() {
@@ -38,6 +34,11 @@ class UserModel extends Model {
     	}
     	
     }
+
+	public function logout() {
+		unset($_SESSION['is_logged_in']);
+		unset($_SESSION['user_data']);
+	}
 
     public function register() {
     	$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

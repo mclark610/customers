@@ -65,7 +65,11 @@
          <h2> logging in now!</h2>    
          <?php require($view);?>
          <?php else : ?>
-         <h2 class='text-center'> please log in.</h2>
+         <div class="panel panel-default">
+            <div class="panel-body">
+             <h2 class='text-center'> please log in.</h2>
+            </div>
+        </div>
          <?php endif; ?>
      </div>
 
