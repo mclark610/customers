@@ -3,8 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>Customers</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!--    <script src="https://code.jquery.com/jquery-1.3.1.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -37,7 +43,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
-            <li><a href="<?php echo ROOT_URL; ?>billing">Billing</a></li>
+            <li><a href="<?php echo ROOT_URL; ?>transactions">Transactions</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -56,23 +62,15 @@
     <div class="container">
     
      <div class="row">
+         <!-- Logged in? Proceed -->
          <?php if (isset($_SESSION['is_logged_in'])): ?>
      	   <?php     require($view); ?>
          <?php elseif( isset($_SERVER['REQUEST_URI']) && 
-                       basename($_SERVER['REQUEST_URI'] ) == "login"
-                     ) : ?>
-                
-         <h2> logging in now!</h2>    
-         <?php require($view);?>
-         <?php else : ?>
-         <div class="panel panel-default">
-            <div class="panel-body">
-             <h2 class='text-center'> please log in.</h2>
-            </div>
-        </div>
+                       basename($_SERVER['REQUEST_URI'] ) == "login" ||
+                       basename($_SERVER['REQUEST_URI'] ) == "register" 
+                   ) : ?>
+         <?php   require($view);?>
          <?php endif; ?>
-     </div>
-
     </div><!-- /.container -->
 </body>
 </html>

@@ -1,15 +1,14 @@
 <?php
 
-class Customers extends Controller {
+class Tables extends Controller {
 	protected function Index() {
-		$viewModel = new CustomerModel();
+		$viewModel = new TableModel();
 		$this->ReturnView($viewModel->Index(),true);
 	}
-
 	protected function doAjaxTable() {
-		$viewModel = new CustomerModel();
+		$viewModel = new TableModel();
 
-    	$rset = $viewModel->getTableData();
+    	$rset = $viewModel->getTableData2();
 
 		$count = count($rset);
 

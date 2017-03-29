@@ -1,29 +1,20 @@
 <?php
 
-class BillingModel extends Model {
+class TransactionModel extends Model {
 	private $sql;
 	private $row;
 
-	private $arrCust;
+	private $limit = 100;
 
 	public function Index() {
-		/*
-		var_dump($_SESSION);
-		var_dump($_SERVER);
-		var_dump($_POST);
-		var_dump($_GET);
-		
-		echo "ID:::: $id";
-
-		var_dump($_GET);
-		var_dump($id);
-		*/
-
 		return $this->fetchTransactions();
 	}
 
-	public function fetchCustomerTransactions($id) {
-		$limit=100;
+	public function Fetch() {
+		return $this->fetchCustomerTransactions();
+	}
+	public function fetchCustomerTransactions() {
+		$id = $_GET['id'];
         $this->sql = "select "
 		             . "  t.id 'id',c.id 'user_id', "
 		             . "  c.first 'first', c.last 'last',"
@@ -38,7 +29,7 @@ class BillingModel extends Model {
 					 .	  "t.amount "
 					 . "order by "
 					 . "  t.date_expired desc "
-					 . "LIMIT $limit";
+					 . "LIMIT $this->limit";
 
 		$this->query($this->sql);
    		$this->bind(':CID', $id);
@@ -47,8 +38,7 @@ class BillingModel extends Model {
     }
 
 	public function fetchTransactions() {
-		$limit=100;
-        $this->sql = "select "
+		$this->sql = "select "
 					 . "	t.id 'id', "
 					 . "    t.user_id 'user_id', "
 					 . "	t.amount  'amount' , "
@@ -56,16 +46,42 @@ class BillingModel extends Model {
 					 . "    t.date_paid    'date_paid' "
 					 . "from "
 					 . "	transactions t "
-					 . "LIMIT $limit;";
+					 . "group by "
+					 . "    t.id, "
+					 . "    t.user_id, "
+					 . "    t.amount, "
+					 . "    t.date_expired, "
+					 . "    t.date_paid "
+					 . "order by "
+					 . "    t.date_expired desc "
+					 . "LIMIT $this->limit;";
 
 		$this->query($this->sql);
 		$this->execute();
 		return( $this->resultSet() );
 	}
 
-	public function fetchBills() {
-		$id = $_GET['id'];
-		return $this->fetchCustomerTransactions($id);
+	public function getTableData() {
+        $this->sql = "select " 
+					 . "	t.id 'id', "
+					 . "    t.user_id 'user_id', "
+					 . "	t.amount  'amount' , "
+					 . "	t.date_expired 'expiration', "
+					 . "    t.date_paid    'date_paid' "
+					 . "from "
+					 . "	transactions t "
+					 . "group by "
+					 . "    t.id, "
+					 . "    t.user_id, "
+					 . "    t.amount, "
+					 . "    t.date_expired, "
+					 . "    t.date_paid "
+					 . "order by "
+					 . "    t.date_expired desc "
+					 ."LIMIT $this->limit";
+	    $this->query($this->sql);
+		
+		return($this->resultSet());
 	}
 }
 

@@ -1,13 +1,19 @@
 <div class="text-center">
-  <h1 class="blue_text">Customer Listing</h1>
-  <p class="lead">
-  </p>
-</div>
+<h1 class="blue_text">Tables test</h1>
+<p class="lead">
+<?php 
+  #var_dump($_SESSION);
+  #var_dump($_SERVER);
+  if (isset($viewmodel) ) {
+//      echo "numRows<$numRows> --- maxSize<$maxSize> --- numPages<$numPages><br>";
+  }
+?>
 
-<div class="customer_listing">
-  <div class="col-md-10 "> 
+</p>
+</div>
+  <div class="cust_list">
     <div class="table-responsive">  
-       <table id="custResults" class="table table-bordered table-striped table-hover" >
+       <table id="tableResults" class="table table-bordered table-striped table-hover" >
             <thead>
               <tr class="blue_text">
                 <th>Id</th>
@@ -19,16 +25,16 @@
             </tbody>
       </table>
     </div> <!-- table-responsive -->
-  </div>
-</div>
+  </div>   <!-- cust-list -->
+</div> <!-- customer_listing -->
 
 <script type="text/javascript">
 $(document).ready(function() {
 
-    var table = $('#custResults').DataTable({
+    var table = $('#tableResults').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "/customers/customers/doAjaxTable",
+        "ajax": "/customers/tables/doAjaxTable",
         "columns" : [
           { "data" : "id" } ,
           { "data" : "last" },
@@ -36,16 +42,17 @@ $(document).ready(function() {
         ]
       });
     
-    $("#custResults > tbody").on( "dblclick", "tr", function () {
+    $("#tableResults > tbody").on( "dblclick", "tr", function () {
         var data = table.row($(this)).data();
-        var controller="transactions";
+        //alert(data["id"] + data["last"] + data["expiration"]);
+        var controller="tables";
         var action="fetch";
         var link="/customers/"+controller+"/"+action+"/"+data["id"];
 
         document.location.href = link;
+                                     
      });
   });
 
     </script>
 
-  </div> <!-- customer_listing -->

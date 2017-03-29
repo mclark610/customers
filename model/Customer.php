@@ -3,7 +3,7 @@
 class CustomerModel extends Model {
 	private $sql;
     private $row;
-
+	private $limit=100;
 	private $arrCust;
 
     public function Index() {
@@ -18,6 +18,20 @@ class CustomerModel extends Model {
 
 		return($this->resultSet());
     }
+	public function getTableData() {
+        $this->sql = "select " 
+		             .  "c.id 'id', "
+		             .  "c.last 'last', "
+					 .  "date_format(t.date_expired,'%m/%d/%Y') 'expiration' "
+					 ."from " 
+					 .   "customers c "
+					 ."inner join transactions t on c.id = t.user_id "
+					 ."LIMIT $this->limit";
+	    $this->query($this->sql);
+		
+		return($this->resultSet());
+	}
+
 }
 
 /*

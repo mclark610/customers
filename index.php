@@ -8,12 +8,14 @@ require("core/Model.php");
 require("core/Messages.php");
 
 require("controllers/Customers.php");
-require("controllers/Billing.php");
+require("controllers/Transactions.php");
 require("controllers/Users.php");
+require("controllers/Tables.php");
 
 require("model/Customer.php");
-require("model/Billing.php");
+require("model/Transaction.php");
 require("model/Users.php");
+require("model/Tables.php");
 
 $bootstrap = new Bootstrap($_GET);
 $controller = $bootstrap->createController();

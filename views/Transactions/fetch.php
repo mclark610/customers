@@ -27,18 +27,12 @@
                 <thead>
                   <tr class="blue_text">
                     <th>Id</th>
+                    <th>User ID</th>
                     <th>Transaction</th>
                     <th>Expiration</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach($viewmodel as $col) : ?>
-                    <tr id = <?php echo $col['id'];?> class="myrow" style="font-size: 12px;">
-                      <td class="col-md-1"><?php echo $col['id']?></td>
-                      <td class="col-md-2"><?php echo $col['amount']?></td>
-                      <td class="col-md-9"><?php echo $col['expiration']?></td>
-                    </tr>
-                  <?php endforeach; ?>
                 </tbody>
             </table>             
           </div>
@@ -49,9 +43,31 @@
   <?php else:  ?>
     <div class="panel panel-default">
       <div class="panel-body">
-        Please return to the Customers page and try again.
+          Customer doesn't have any transactions
       </div>
     </div>
   <?php endif; ?>
-
 </div>
+
+  <script type="text/javascript">
+$(document).ready(function() {
+    var table = $('#table_results').DataTable({
+        "processing": true,
+        "serverSide": false,
+        "ajax": "/customers/transactions/ajaxCustomerTransactions/"+<?php echo $_GET['id']?>,
+        "columns" : [
+          { "data" : "id" } ,
+          { "data" : "user_id"},
+          { "data" : "amount" },
+          { "data" : "expiration" }
+        ],
+        "columnDefs": [
+            {
+                "targets": [ 1 ],
+                "visible": false,
+            }
+        ]
+      });
+    
+  });
+</script>

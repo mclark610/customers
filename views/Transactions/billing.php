@@ -49,12 +49,12 @@
          while( $pos < $max) {
 	      $trans = $trans_array[$pos];
               
-              $bill_detail_link="http://localhost/customers/billing.php?id=" . $trans->getId();
+              $bill_detail_link="http://localhost/customers/transactions.php?id=" . $trans->getId();
 
 	      if ($pos % 2) { ?>
                 <div class="even_customer_listing" ondblclick="window.open('<?php echo $bill_detail_link; ?>','_newtab');">
               <?php } else { ?>
-                <div class="odd_customer_listing" ondblclick="window.open('<?php echo $billdetail_link; ?>','_newtab');">
+                <div class="odd_customer_listing" ondblclick="window.open('<?php echo $bill_detail_link; ?>','_newtab');">
               <?php }
                 $pos = $pos + 1;
               ?>

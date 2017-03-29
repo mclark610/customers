@@ -1,0 +1,78 @@
+<div class="text-center">
+<h1 class="blue_text">Tables test</h1>
+<p class="lead">
+<?php 
+  #var_dump($_SESSION);
+  #var_dump($_SERVER);
+  if (isset($viewmodel) ) {
+//      echo "numRows<$numRows> --- maxSize<$maxSize> --- numPages<$numPages><br>";
+  }
+?>
+</p>
+</div>
+  <div class="cust_list">
+    <div class="table-responsive">  
+       <table id="table-results" class="table table-bordered table-striped table-hover" >
+            <thead>
+              <tr class="blue_text">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Last Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id=999 class="myrow" style="font-size: 12px;">
+                <td>999</td>
+                <td>Test Name</td>
+                <td>3/15/2017</td>
+              </tr>
+            <?php 
+              #var_dump($viewmodel);
+              #$data    = $viewmodel['data'];
+              $maxsize = (isset($viewmodel) ? sizeof($viewmodel): 0); 
+            ?>
+
+            <?php for($row=0;$row<100;$row++): ?>
+              <tr id="<?php echo $viewmodel[$row]['id']?>" class="myrow" style="font-size: 12px;">
+                <td ><?php echo $viewmodel[$row]['id']?></td>
+                <td><?php echo $viewmodel[$row]['last'],', ' ,$viewmodel[$row]['first']?></td>
+                <td><?php echo $viewmodel[$row]['expiration']?></td>
+              </tr>
+             <?php endfor; ?>
+            </tbody>
+      </table>
+    </div> <!-- table-responsive -->
+  </div>   <!-- cust-list -->
+</div> <!-- customer_listing -->
+
+
+<script>
+  $("tr").dblclick(function() {
+    var id = $(this).attr('id');
+    var controller="tables";
+    var action="fetch";
+    var link="/customers/"+controller+"/"+action+"/"+id;
+
+    document.location.href = link;
+
+  });
+
+//works
+  $(document).ready(function() {
+    $('#table-results').DataTable();
+} );
+
+/*
+          var controller="tables";
+          var action="doAjaxTable";
+          var link="/tables/"+controller+"/"+action;
+
+        $('#table-results').dataTable({
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxSource": "<?php echo file_get_contents("http://localhost/tables/doAjaxTable") ?>"
+        });
+    });
+*/
+</script>
+
