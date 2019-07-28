@@ -3,25 +3,25 @@
 <p class="lead">
 </p>
 <div class="customer_listing">
-  <div class="col-md-10 "> 
-
-    <div class="table-responsive">  
+  <div class="col-md-10 ">
+    <h1>THIS IS TRANSACTIONS</h1>
+    <div class="table-responsive">
        <table id="transResults" class="table table-bordered table-striped table-hover" >
             <thead>
               <tr class="blue_text">
                 <th>Id</th>
-                <th>UserId</th>
+                <th>User Id</th>
                 <th>Transaction</th>
                 <th>Expiration</th>
               </tr>
             </thead>
             <tbody>
            </tbody>
-      </table>             
+      </table>
 </div>
   <script type="text/javascript">
 $(document).ready(function() {
-
+/*
     var table = $('#transResults').DataTable({
         "processing": true,
         "serverSide": false,
@@ -39,7 +39,7 @@ $(document).ready(function() {
             }
         ]
       });
-    
+
     $("#transResults > tbody").on( "dblclick", "tr", function () {
         var data = table.row($(this)).data();
         var controller="transactions";
@@ -47,7 +47,8 @@ $(document).ready(function() {
         var link="/customers/"+controller+"/"+action+"/"+data["user_id"];
 
         document.location.href = link;
-                                     
+
      });
+     */
   });
 </script>

@@ -5,4 +5,4 @@ Object:
   The object is to work with the grid control, working with different data feeds and other libraries.
   
 Awesome:
-  Php and applying MVC to web design is awesome! 
+  PHP and applying MVC to web design is awesome! 

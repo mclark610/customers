@@ -2,13 +2,16 @@
 
 class Transactions extends Controller {
 	protected function Index() {
+	#	echo "Transactions::Index:viewmodel: ";  echo"<br/>";
+	#	echo "Transactions::Index:get_parent_class: "  . get_parent_class($this) . "<br/>";
+
 		$viewModel = new TransactionModel();
-		$this->ReturnView($viewModel->Index(),true);
+		$this->returnView("views/Transactions/index.php",true);
 	}
 
-	protected function Fetch() {
+	protected function fetch() {
 		$viewModel = new TransactionModel();
-		return $this->ReturnView($viewModel->Fetch(),true);
+		return $this->returnView($viewModel->Fetch(),true);
 	}
 
 	protected function ajaxCustomerTransactions() {
@@ -25,14 +28,14 @@ class Transactions extends Controller {
   "recordsTotal": $count,
   "recordsFiltered": 0,
   "data": $buf
-}		
+}
 EOT;
 	echo $test;
 		#return($buf);
 		#$this->ReturnView(json_encode($buf),false);
 
 	}
-	
+
 	protected function doAjaxTable() {
 		$viewModel = new TransactionModel();
 
@@ -48,7 +51,7 @@ EOT;
   "recordsTotal": $count,
   "recordsFiltered": 0,
   "data": $buf
-}		
+}
 EOT;
 	echo $test;
 		#return($buf);

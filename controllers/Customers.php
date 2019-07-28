@@ -3,13 +3,18 @@
 class Customers extends Controller {
 	protected function Index() {
 		$viewModel = new CustomerModel();
+#		echo "Controller::Index:viewmodel: "; var_dump($viewModel); echo"<br/>";
+#		echo "Controller::Index:get_parent_class: "  . get_parent_class($this) . "<br/>";
+#		echo "Controller::Index:get__class: "  . get_class($this) . "<br/>";
+#		echo "Controller::viewModel classname: "  . get_class($viewModel) . "<br/>";
+
 		$this->ReturnView($viewModel->Index(),true);
 	}
 
 	protected function doAjaxTable() {
 		$viewModel = new CustomerModel();
 
-    	$rset = $viewModel->getTableData();
+    $rset = $viewModel->getTableData();
 
 		$count = count($rset);
 
@@ -21,7 +26,7 @@ class Customers extends Controller {
   "recordsTotal": $count,
   "recordsFiltered": 0,
   "data": $buf
-}		
+}
 EOT;
 	echo $test;
 		#return($buf);

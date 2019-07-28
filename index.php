@@ -18,10 +18,12 @@ require("model/Users.php");
 require("model/Tables.php");
 
 $bootstrap = new Bootstrap($_GET);
+#echo "bootstrap: " + var_dump($bootstrap);
+
 $controller = $bootstrap->createController();
+#echo "controller: " + var_dump($controller);
 
 if ($controller) {
 	$controller->executeAction();
 }
 ?>
-

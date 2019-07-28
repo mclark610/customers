@@ -3,16 +3,15 @@
   <p class="lead">
   </p>
 </div>
-
 <div class="customer_listing">
-  <div class="col-md-10 "> 
-    <div class="table-responsive">  
+  <div class="col-md-10 ">
+    <div class="table-responsive">
        <table id="custResults" class="table table-bordered table-striped table-hover" >
             <thead>
               <tr class="blue_text">
-                <th>Id</th>
-                <th>Name</th>
-                <th>Expiration</th>
+                <th>id</th>
+                <th>last</th>
+                <th>expiration</th>
               </tr>
             </thead>
             <tbody>
@@ -24,23 +23,23 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-
+//    alert("Customers view");
     var table = $('#custResults').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "/customers/customers/doAjaxTable",
+        "ajax": "https://cust.casualcoder.net/?controller=Customers&action=doAjaxTable",
         "columns" : [
           { "data" : "id" } ,
           { "data" : "last" },
-          { "data" : "expiration" }
+          { "data" : "expiration" },
         ]
       });
-    
+
     $("#custResults > tbody").on( "dblclick", "tr", function () {
         var data = table.row($(this)).data();
         var controller="transactions";
         var action="fetch";
-        var link="/customers/"+controller+"/"+action+"/"+data["id"];
+        var link="https://cust.casualcoder.net/?controller="+controller+"&action="+action+"&id="+data["id"];
 
         document.location.href = link;
      });

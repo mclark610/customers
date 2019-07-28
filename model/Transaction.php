@@ -6,11 +6,11 @@ class TransactionModel extends Model {
 
 	private $limit = 100;
 
-	public function Index() {
+	public function index() {
 		return $this->fetchTransactions();
 	}
 
-	public function Fetch() {
+	public function fetch() {
 		return $this->fetchCustomerTransactions();
 	}
 	public function fetchCustomerTransactions() {
@@ -62,7 +62,7 @@ class TransactionModel extends Model {
 	}
 
 	public function getTableData() {
-        $this->sql = "select " 
+        $this->sql = "select "
 					 . "	t.id 'id', "
 					 . "    t.user_id 'user_id', "
 					 . "	t.amount  'amount' , "
@@ -80,10 +80,9 @@ class TransactionModel extends Model {
 					 . "    t.date_expired desc "
 					 ."LIMIT $this->limit";
 	    $this->query($this->sql);
-		
+
 		return($this->resultSet());
 	}
 }
 
 ?>
-

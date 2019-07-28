@@ -1,4 +1,30 @@
-Options +FollowSymLinks
-RewriteEngine on
-RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=$1&action=$2&id=$3 [NC,L]
+# ----------------------------------------------------------------------
+# | Redirect all domains to `http://` to avoid SSL warning notices     |
+# ----------------------------------------------------------------------
 
+# If you have an SSL certificate on your primary domain name and attempt
+# to view a URL using a domain aliases your browser will return an SSL error.
+# as it is attempting to verify the site identity using the SSL cert assigned
+# to the main domain name. To fix this we redirect all domain aliases to the
+# non-SSL `http://` version of the URL and follow-up by redirecting `https://`
+# version of the URL.
+
+#<ifmodule mod_rewrite.c>
+# RewriteEngine On
+# RewriteBase /
+# Rewritecond %{HTTP_HOST} !^cust\.casualcoder\.net [NC]
+# RewriteRule (.*) http://cust.casualcoder.net/$1 [R=301,L]
+#</ifmodule>
+
+# ----------------------------------------------------------------------
+# | Forcing `https://`                                                 |
+# ----------------------------------------------------------------------
+
+# Redirect from the `http://` to the `https://` version of the URL.
+# https://wiki.apache.org/httpd/RewriteHTTPToHTTPS
+
+<ifmodule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^([a-zA-Z]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9]*)?/?$ index.php?controller=$1&action=$2&id=$3 [L,QSA]
+</ifmodule>

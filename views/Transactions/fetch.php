@@ -3,8 +3,6 @@
 <p class="lead"></p>
 <div class="customer_listing">
   <div class="container">
-    <?php if (isset($viewmodel) && !(empty($viewmodel))): ?>
-        <?php $row = $viewmodel[0];?>
         <div class="row">
           <div class="col-sm-1">Name</div>
           <div class="col-sm-2 text-left"><?php echo "$row[first] $row[last]"?></div>
@@ -17,57 +15,52 @@
           <div class="col-sm-9"></div>
         </div>
         <div class="row">
-          <br>
+          <br/>
         </div>
 
         <div class="row">
-          <div class="col-md-10 text-left"> 
-            <div class="table-responsive textcentered">  
+          <div class="col-md-10 text-left">
+            <div class="table-responsive textcentered">
               <table id="table_results" class="table table-bordered table-striped table-hover " >
                 <thead>
                   <tr class="blue_text">
-                    <th>Id</th>
-                    <th>User ID</th>
-                    <th>Transaction</th>
-                    <th>Expiration</th>
+                    <th>id</th>
+                    <th>user_id</th>
+                    <th>first</th>
+                    <th>last</th>
+                    <th>phone</th>
+                    <th>expiration</th>
+                    <th>amount</th>
                   </tr>
                 </thead>
                 <tbody>
                 </tbody>
-            </table>             
+            </table>
           </div>
           <div class="col-md-2">
           </div>
         </div>
       </div>
-  <?php else:  ?>
-    <div class="panel panel-default">
-      <div class="panel-body">
-          Customer doesn't have any transactions
-      </div>
-    </div>
-  <?php endif; ?>
 </div>
 
   <script type="text/javascript">
 $(document).ready(function() {
+    let id = parseInt(<?php echo $_GET['id']?>);
+    alert("id: " + id);
     var table = $('#table_results').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "/customers/transactions/ajaxCustomerTransactions/"+<?php echo $_GET['id']?>,
+        "ajax": "https://cust.casualcoder.net/?controller=Transactions&action=ajaxCustomerTransactions&id="+parseInt(<?php echo $_GET['id'];?>),
         "columns" : [
           { "data" : "id" } ,
           { "data" : "user_id"},
+          { "data": "first"},
+          { "data": "last"},
+          {"data": "phone"},
+          { "data": "expiration"},
           { "data" : "amount" },
-          { "data" : "expiration" }
         ],
-        "columnDefs": [
-            {
-                "targets": [ 1 ],
-                "visible": false,
-            }
-        ]
       });
-    
+
   });
 </script>
