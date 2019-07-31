@@ -1,0 +1,17 @@
+<?php
+// 1. relabel this as config.php
+// add your own information here.
+// The below is a mariadb docker setup you can find here:
+// https://hub.docker.com/_/mariadb
+// keep an eye on my github for a docker-compose file I use to run this and
+// other programs
+
+//DEFINE DB
+define("DB_HOST","127.0.0.1");
+define("DB_USER","root");
+define("DB_PASS","my-secret-pw");
+define("DB_NAME","customer");
+
+//Define URLs
+define("ROOT_PATH","/var/www/html/customers");
+define("ROOT_URL","http://localhost/customers");
