@@ -43,7 +43,7 @@ $(document).ready(function() {
         var data = table.row($(this)).data();
         var controller="transactions";
         var action="fetch";
-        var link= "<?php echo ROOT_URL?>"+"/"+controller+"/"+action+"/"+data["user_id"];
+        var link= "<?php echo ROOT_URL?>"+"/?controller="+controller+"&action="+action+"&id="+data["user_id"];
 
         document.location.href = link;
 
