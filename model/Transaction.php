@@ -61,6 +61,30 @@ class TransactionModel extends Model {
 		return( $this->resultSet() );
 	}
 
+	public function fetchTransactions() {
+		$this->sql = "select "
+					 . "	t.id 'id', "
+					 . "    t.user_id 'user_id', "
+					 . "	t.amount  'amount' , "
+					 . "	t.date_expired 'expiration', "
+					 . "    t.date_paid    'date_paid' "
+					 . "from "
+					 . "	transactions t "
+					 . "group by "
+					 . "    t.id, "
+					 . "    t.user_id, "
+					 . "    t.amount, "
+					 . "    t.date_expired, "
+					 . "    t.date_paid "
+					 . "order by "
+					 . "    t.date_expired desc "
+					 . "LIMIT $this->limit;";
+
+		$this->query($this->sql);
+		$this->execute();
+		return( $this->resultSet() );
+	}
+
 	public function getTableData() {
         $this->sql = "select "
 					 . "	t.id 'id', "

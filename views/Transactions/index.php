@@ -4,7 +4,6 @@
 </p>
 <div class="customer_listing">
   <div class="col-md-10 ">
-    <h1>THIS IS TRANSACTIONS</h1>
     <div class="table-responsive">
        <table id="transResults" class="table table-bordered table-striped table-hover" >
             <thead>
@@ -21,11 +20,11 @@
 </div>
   <script type="text/javascript">
 $(document).ready(function() {
-/*
+
     var table = $('#transResults').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "/customers/transactions/doAjaxTable",
+        "ajax": "<?php echo ROOT_URL?>"+"/?controller=transactions&action=doAjaxTable",
         "columns" : [
           { "data" : "id" } ,
           { "data" : "user_id"},
@@ -49,6 +48,6 @@ $(document).ready(function() {
         document.location.href = link;
 
      });
-     */
+
   });
 </script>

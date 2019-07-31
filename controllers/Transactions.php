@@ -11,7 +11,7 @@ class Transactions extends Controller {
 
 	protected function fetch() {
 		$viewModel = new TransactionModel();
-		return $this->returnView($viewModel->fetchTransactions(),true);
+		return $this->returnView($viewModel,true);
 	}
 	protected function fetchAll() {
 		$viewModel = new TransactionModel();
