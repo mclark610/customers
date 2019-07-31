@@ -37,7 +37,7 @@ class TransactionModel extends Model {
 		return($this->resultSet());
     }
 
-	public function fetchTransactions() {
+	public function fetchAllTransactions() {
 		$this->sql = "select "
 					 . "	t.id 'id', "
 					 . "    t.user_id 'user_id', "

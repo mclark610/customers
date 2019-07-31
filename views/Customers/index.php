@@ -27,7 +27,7 @@ $(document).ready(function() {
     var table = $('#custResults').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "https://cust.casualcoder.net/?controller=Customers&action=doAjaxTable",
+        "ajax": "<?php echo ROOT_URL?>"+"/?controller=Customers&action=doAjaxTable",
         "columns" : [
           { "data" : "id" } ,
           { "data" : "last" },
@@ -39,8 +39,8 @@ $(document).ready(function() {
         var data = table.row($(this)).data();
         var controller="transactions";
         var action="fetch";
-        var link="https://cust.casualcoder.net/?controller="+controller+"&action="+action+"&id="+data["id"];
-
+//        var link="https://cust.casualcoder.net/?controller="+controller+"&action="+action+"&id="+data["id"];
+        var link = "<?php echo ROOT_URL?>"+"/?controller="+controller +"&action="+action+"&id="+data["id"];
         document.location.href = link;
      });
   });

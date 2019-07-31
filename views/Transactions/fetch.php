@@ -45,12 +45,10 @@
 
   <script type="text/javascript">
 $(document).ready(function() {
-    let id = parseInt(<?php echo $_GET['id']?>);
-    alert("id: " + id);
     var table = $('#table_results').DataTable({
         "processing": true,
         "serverSide": false,
-        "ajax": "https://cust.casualcoder.net/?controller=Transactions&action=ajaxCustomerTransactions&id="+parseInt(<?php echo $_GET['id'];?>),
+        "ajax": "<?php echo ROOT_URL?>"+"/?controller=Transactions&action=ajaxCustomerTransactions&id="+parseInt(<?php echo $_GET['id'];?>),
         "columns" : [
           { "data" : "id" } ,
           { "data" : "user_id"},

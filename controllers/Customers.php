@@ -7,7 +7,9 @@ class Customers extends Controller {
 #		echo "Controller::Index:get_parent_class: "  . get_parent_class($this) . "<br/>";
 #		echo "Controller::Index:get__class: "  . get_class($this) . "<br/>";
 #		echo "Controller::viewModel classname: "  . get_class($viewModel) . "<br/>";
-
+#    echo "session: ",$_SESSION['is_logged_in'];
+#		echo "rootpath: ",ROOT_URL;
+#		echo "ajax: " , ROOT_URL. "/?controller=Customers&action=doAjaxTable";
 		$this->ReturnView($viewModel->Index(),true);
 	}
 

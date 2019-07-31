@@ -30,17 +30,17 @@
           <ul class="nav navbar-nav">
             <li><a href="<?php echo ROOT_URL;?>">Home</a></li>
 
-          <li><a href="https://cust.casualcoder.net/?controller=Transactions&action=index">Transactions</a></li>
+          <li><a href="<?php echo ROOT_URL;?>/?controller=Transactions&action=index">Transactions</a></li>
 
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <?php if(isset($_SESSION['is_logged_in'])) : ?>
             <li><a href="<?php echo ROOT_URL; ?>">Welcome <?php echo $_SESSION['user_data']['name']; ?></a></li>
-            <li><a href="https://cust.casualcoder.net/?controller=Users&action=logout">Logout</a></li>
+            <li><a href="<?php echo ROOT_URL;?>/?controller=Users&action=logout">Logout</a></li>
           <?php else : ?>
-            <li><a href="https://cust.casualcoder.net/?controller=Users&action=login">Login eh</a></li>
-            <li><a href="https://cust.casualcoder.net/?Users/register">Register</a></li>
+            <li><a href="<?php echo ROOT_URL;?>/?controller=Users&action=login">Login eh</a></li>
+            <li><a href="<?php echo ROOT_URL;?>/?controller=Users&action=register">Register</a></li>
           <?php endif; ?>
           </ul>
         </div><!--/.nav-collapse -->
@@ -48,20 +48,28 @@
     </nav>
     <div class="container">
      <div class="row">
-       <!--
+<!--
          <h2>Logged in: <?php echo isset($_SESSION['is_logged_in']) ?></h2>
          <h2>REQUEST_URI:isset <?php echo isset($_SERVER['REQUEST_URI']) ?></h2>
          <h2>REQUEST_URI:basename: <?php echo basename($_SERVER['REQUEST_URI']) ?></h2>
          <h2>REQUEST_URI: <?php echo $_SERVER['REQUEST_URI'] ?></h2>
-         <h2>logged in<?php echo $_SESSION['user_data']['name']; ?></h2>
-       -->
+         <h2>LOGIN TEST: <?php echo strpos($_SERVER['REQUEST_URI'],"login")?></h2>
+         <h2>VIEW: <?php echo $view?></h2>
+-->
          <!-- Logged in? Proceed -->
-         <?php if (isset($_SESSION['is_logged_in'])): ?>
-     	    <?php      require($view); ?>
-         <?php else : ?>
-                <h1>LOGIN TO ME</h1>
-                <?php require($view); ?>
-         <?php endif; ?>
+         <?php if (isset($_SESSION['is_logged_in'])) :
+//              echo("<h3>is_logged_in</h3>");
+     	             require($view);
+                elseif(strpos($_SERVER['REQUEST_URI'],"login")):
+//                  echo("<h3>strpos called</h3>");
+                  require($view);
+                else:
+                    echo("please login\n");
+               endif;
+//               echo("<h2>VIEW2: $view ></h2>");
+
+//               require($view);
+         ?>
     </div><!-- /.container -->
 </body>
 </html>
