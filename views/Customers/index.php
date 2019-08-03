@@ -12,9 +12,9 @@
        <table id="custResults" class="table table-bordered table-striped table-hover" >
             <thead>
               <tr class="blue_text">
-                <th>id</th>
-                <th>last</th>
-                <th>expiration</th>
+                <th>ID</th>
+                <th>Last Name</th>
+                <th>Expiration</th>
               </tr>
             </thead>
             <tbody>
@@ -25,17 +25,15 @@
 </div>
 </div>
 
+<script type="text/javascript" src="/customers/assets/js/cust_index.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function() {
     var table = $('#custResults').DataTable({
         "processing": true,
         "serverSide": false,
         "ajax": "<?php echo ROOT_URL?>"+"/?controller=Customers&action=doAjaxTable",
-        "columns" : [
-          { "data" : "id" } ,
-          { "data" : "last" },
-          { "data" : "expiration" },
-        ]
+        "columns" : cust_cols
       });
 
     $("#custResults > tbody").on( "dblclick", "tr", function () {

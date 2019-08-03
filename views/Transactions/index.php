@@ -20,6 +20,7 @@
           </table>
     </div>
   </div>
+  <script type="text/javascript" src="/customers/assets/js/trans_index.js"></script>
   <script type="text/javascript">
 $(document).ready(function() {
 
@@ -27,18 +28,7 @@ $(document).ready(function() {
         "processing": true,
         "serverSide": false,
         "ajax": "<?php echo ROOT_URL?>"+"/?controller=transactions&action=doAjaxTable",
-        "columns" : [
-          { "data" : "id" } ,
-          { "data" : "user_id"},
-          { "data" : "amount" },
-          { "data" : "expiration" }
-        ],
-        "columnDefs": [
-            {
-                "targets": [ 1 ],
-                "visible": false,
-            }
-        ]
+        "columns" : trans_index_cols
       });
 
     $("#transResults > tbody").on( "dblclick", "tr", function () {

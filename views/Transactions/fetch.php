@@ -43,21 +43,14 @@
           </div>
     </div>
   </div>
+  <script type="text/javascript" src="/customers/assets/js/trans_fetch.js"></script>
   <script type="text/javascript">
 $(document).ready(function() {
     var table = $('#table_results').DataTable({
         "processing": true,
         "serverSide": false,
         "ajax": "<?php echo ROOT_URL?>"+"/?controller=Transactions&action=ajaxCustomerTransactions&id="+parseInt(<?php echo $_GET['id'];?>),
-        "columns" : [
-          { "data" : "id" } ,
-          { "data" : "user_id"},
-          { "data": "first"},
-          { "data": "last"},
-          {"data": "phone"},
-          { "data": "expiration"},
-          { "data" : "amount" },
-        ],
+        "columns" : trans_fetch_cols,
       });
 
   });
