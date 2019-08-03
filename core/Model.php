@@ -2,15 +2,15 @@
 abstract class Model {
 	protected $dbh;
 	protected $stmt;
-	
+
 	public function __construct(){
 		$this->dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
 	}
-	
+
 	public function query($query){
 		$this->stmt = $this->dbh->prepare($query);
 	}
-	
+
 	//Binds the prep statement
 	public function bind($param, $value, $type = null){
 		if (is_null($type)) {
@@ -33,9 +33,9 @@ abstract class Model {
 		#var_dump($value); echo "<br/>";
 		#var_dump($type); echo "<br/>";
 		#echo "---BIND DEBUG END---<br/>\n";
-		
+
 		$this->stmt->bindValue($param, $value, $type);
-		
+
 	}
 
 	public function execute(){
@@ -47,24 +47,24 @@ abstract class Model {
 		#	var_dump($this->stmt->errorInfo());
 		}
 	}
-	
+
 	public function resultSet(){
 		$this->execute();
 		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
+
 	public function lastInsertId(){
 		return $this->dbh->lastInsertId();
 	}
-	
+
 	public function single(){
 		$this->execute();
 		return $this->stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	public function dump_params() {
 		print_r($this->dbh->errorInfo());
-		
+
 		return $this->stmt->debugDumpParams();
 	}
-}	
+}
 ?>

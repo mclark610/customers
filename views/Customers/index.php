@@ -3,8 +3,11 @@
   <p class="lead">
   </p>
 </div>
+<div class="row">
+  <div class="col-12">
+
+
 <div class="customer_listing">
-  <div class="col-md-10 ">
     <div class="table-responsive">
        <table id="custResults" class="table table-bordered table-striped table-hover" >
             <thead>
@@ -18,12 +21,12 @@
             </tbody>
       </table>
     </div> <!-- table-responsive -->
-  </div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript">
 $(document).ready(function() {
-//    alert("Customers view");
     var table = $('#custResults').DataTable({
         "processing": true,
         "serverSide": false,
@@ -39,7 +42,7 @@ $(document).ready(function() {
         var data = table.row($(this)).data();
         var controller="transactions";
         var action="fetch";
-//        var link="https://cust.casualcoder.net/?controller="+controller+"&action="+action+"&id="+data["id"];
+
         var link = "<?php echo ROOT_URL?>"+"/?controller="+controller +"&action="+action+"&id="+data["id"];
         document.location.href = link;
      });
