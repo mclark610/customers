@@ -20,26 +20,5 @@
           </table>
     </div>
   </div>
-  <script type="text/javascript" src="<?php echo $_SERVER['REQUEST_URI']; ?>assets/js/trans_index.js"></script>
-  <script type="text/javascript">
-$(document).ready(function() {
 
-    var table = $('#transResults').DataTable({
-        "processing": true,
-        "serverSide": false,
-        "ajax": "<?php echo ROOT_URL?>"+"/?controller=transactions&action=doAjaxTable",
-        "columns" : trans_index_cols
-      });
-
-    $("#transResults > tbody").on( "dblclick", "tr", function () {
-        var data = table.row($(this)).data();
-        var controller="transactions";
-        var action="fetch";
-        var link= "<?php echo ROOT_URL?>"+"/?controller="+controller+"&action="+action+"&id="+data["user_id"];
-
-        document.location.href = link;
-
-     });
-
-  });
-</script>
+  <script type="text/javascript" src="/assets/js/trans_index.js"></script>

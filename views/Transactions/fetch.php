@@ -39,4 +39,4 @@
           </div>
     </div>
   </div>
-  <script type="text/javascript" src="<?php echo $_SERVER['REQUEST_URI']; ?>assets/js/trans_fetch.js"></script>
+  <script type="text/javascript" src="/assets/js/trans_fetch.js"></script>
