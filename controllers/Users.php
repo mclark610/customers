@@ -11,7 +11,6 @@ class Users extends Controller {
 	}
 
 	protected function login() {
-		echo "Users:login: " . "begin";
 		$viewmodel = new UserModel();
 		$this->returnView($viewmodel->login(),true);
 		//$this->returnView("https://cust.casualcoder.net/?Users/login.php",1);

@@ -23,4 +23,4 @@
   </div> <!-- col-12 -->
 </div> <!-- row -->
 
-<script type="text/javascript" src="/assets/js/cust_index.js"></script>
+<script type="text/javascript" src="<?php ASSET_PATH;?>assets/js/cust_index.js"></script>

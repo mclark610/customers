@@ -16,10 +16,9 @@ let cust_cols = [
     }
 ];
 
-let root_url = window.location.origin+window.location.pathname;
-
 $(document).ready(function() {
 
+    let root_url = window.location.origin+window.location.pathname;
 
     var table = $('#custResults').DataTable({
         "processing": true,

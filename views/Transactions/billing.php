@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>Billing</title>
-  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
   $dbuser="customer";
   $dbpass="customer";
   $dbname="customer_data";
-  $dsn="mysql:host=$dbhost;dbname=$dbname;charset=utf8;";  
+  $dsn="mysql:host=$dbhost;dbname=$dbname;charset=utf8;";
 
 ?>
   <div class="header">
@@ -48,7 +48,7 @@
          $max=count($trans_array);
          while( $pos < $max) {
 	      $trans = $trans_array[$pos];
-              
+
               $bill_detail_link="https://www.casualcoder.net/customers/transactions.php?id=" . $trans->getId();
 
 	      if ($pos % 2) { ?>
@@ -58,8 +58,8 @@
               <?php }
                 $pos = $pos + 1;
               ?>
-	      
-	      <!-- HTML HERE --> 
+
+	      <!-- HTML HERE -->
               <div class="cb">
                 <input type="checkbox" value="1"></input>
               </div>

@@ -15,3 +15,4 @@ define("DB_NAME","customer");
 //Define URLs
 define("ROOT_PATH","/var/www/html/customers");
 define("ROOT_URL","http://localhost/customers");
+define("ASSET_PATH","/customers/");

@@ -21,4 +21,4 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="/assets/js/trans_index.js"></script>
+  <script type="text/javascript" src="<?php ASSET_PATH;?>assets/js/trans_index.js"></script>
