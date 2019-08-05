@@ -13,18 +13,18 @@ let trans_fetch_cols = [
   {
     data: 'first',
     name: 'First Name',
-    visible: true
+    visible: false
   },
   {
     data: 'last',
     name: 'Last Name',
-    visible: true
+    visible: false
   },
 
   {
     data: 'phone',
     name: 'Phone',
-    visible: true
+    visible: false
   },
   {
     data: 'expiration',

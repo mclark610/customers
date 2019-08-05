@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="<?php ASSET_PATH;?>/assets/css/styles.css">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -19,6 +21,7 @@
         margin-left: 10%;
         margin-top:15%;
       }
+
     </style>
 </head>
 <body>
