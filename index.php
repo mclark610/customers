@@ -11,11 +11,13 @@ require("controllers/Customers.php");
 require("controllers/Transactions.php");
 require("controllers/Users.php");
 require("controllers/Tables.php");
+require("controllers/Metrics.php");
 
 require("model/Customer.php");
 require("model/Transaction.php");
 require("model/Users.php");
 require("model/Tables.php");
+require("model/Metrics.php");
 
 $bootstrap = new Bootstrap($_GET);
 #echo "bootstrap: " + var_dump($bootstrap);
