@@ -5,7 +5,6 @@
 </div>
 <div class="row">
   <div class="col-10">
-    <h2>Getting there</h2>
   </div>
 </div>
 

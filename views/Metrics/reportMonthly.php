@@ -5,9 +5,6 @@
 </div>
 <div class="row">
   <div class="col-10">
-    <h2>Getting there Monthly</h2>
-    <?php $msg = ASSET_PATH ."assets/js/metrics_monthly.js"; ?>
-    <?php echo "<script>alert(\"$msg\")</script>";?>
   </div>
 </div> <!-- row -->
 
