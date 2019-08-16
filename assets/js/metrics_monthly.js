@@ -13,7 +13,7 @@ function buildMonthlySalesMonthly() {
 
   let jqxhr = $.ajax(window.location.origin+window.location.pathname +"/?controller=Metrics&action=SalesMonthly")
     .done(function(data) {
-      alert("data" + data);
+//      alert("data" + data);
       var ctx = document.getElementById('myChart').getContext('2d');
       var totalsChart = new Chart(ctx, {
           // The type of chart we want to create
@@ -132,11 +132,6 @@ function buildMonthlyLineChart2() {
 
     var ctx = document.getElementById('myChart').getContext('2d');
 		window.myLine = new Chart(ctx, config);
-}
-
-function optionOnSelect(e) {
-  alert("report sele");
-
 }
 
 $(document).ready(function() {

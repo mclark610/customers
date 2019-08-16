@@ -196,7 +196,6 @@ class MetricsModel extends Model {
           $this->query($this->sql);
 
           $rst = $this->resultSet();
-          $tmp = json_encode(new MonthlyData($rst));
 
           echo json_encode(new MonthlyData($rst));
 
