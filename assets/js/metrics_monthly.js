@@ -11,7 +11,7 @@ function buildMonthlyLineChart() {
 function buildMonthlySalesMonthly() {
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-  let jqxhr = $.ajax("http://localhost/customers/?controller=Metrics&action=SalesMonthly")
+  let jqxhr = $.ajax(root_url +"/?controller=Metrics&action=SalesMonthly")
     .done(function(data) {
       alert("data" + data);
       var ctx = document.getElementById('myChart').getContext('2d');

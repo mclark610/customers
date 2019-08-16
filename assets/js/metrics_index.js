@@ -5,7 +5,7 @@
 
 // prepares correct data
 function buildPieSalesYearly() {
-  let jqxhr = $.ajax("http://localhost/customers/?controller=Metrics&action=SalesYearly")
+  let jqxhr = $.ajax(root_url +"/?controller=Metrics&action=SalesYearly")
     .done(function(data) {
       var ctx = document.getElementById('myChart').getContext('2d');
       var totalsChart = new Chart(ctx, {
