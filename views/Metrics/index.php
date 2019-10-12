@@ -9,15 +9,6 @@
   </div>
 </div>
 
-
-<script type="text/javascript">
-function selectReport () {
-  alert("hello there from onClick");
-  // ajax to fetch report.
-
-}
-
-</script>
 </div> <!-- row -->
 <div class="row">
     <div class="col-12">
