@@ -44,7 +44,9 @@
                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                  <a class="dropdown-item" href="<?php echo ROOT_URL;?>/?controller=Metrics&action=reportYearly">Yearly Sales Report</a>
                  <a class="dropdown-item" href="<?php echo ROOT_URL;?>/?controller=Metrics&action=reportMonthly">Monthly Sales Report</a>
+                 <!--
                  <a class="dropdown-item" href="<?php echo ROOT_URL;?>/?controller=Metrics&action=weekly">Weekly Sales Report</a>
+               -->
                  <div class="dropdown-divider"></div>
                </div>
             </li>
