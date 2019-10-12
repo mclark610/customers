@@ -53,17 +53,6 @@
           <?php else : ?>
             <li class="nav-item"><a class="nav-link disabled " href="<?php echo ROOT_URL;?>/?controller=Transactions&action=index">Transactions<span class="sr-only">(current)</span></a></li>
             <li class="nav-item"><a class="nav-link disabled " href="<?php echo ROOT_URL;?>/?controller=Metrics&action=index">Metrics<span class="sr-only">(current)</span></a></li>
-            <li class="nav-item dropdown disabled">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Metrics
-               </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                 <a class="dropdown-item" href="#">Yearly Sales Report</a>
-                 <a class="dropdown-item" href="#">Monthly Sales Report</a>
-                 <a class="dropdown-item" href="#">Weekly Sales Report</a>
-                 <div class="dropdown-divider"></div>
-               </div>
-            </li>
           <?php endif; ?>
 
         </li>
