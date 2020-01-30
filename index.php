@@ -28,4 +28,7 @@ $controller = $bootstrap->createController();
 if ($controller) {
 	$controller->executeAction();
 }
+else {
+    echo "controller not found. Exiting...\n";
+}
 ?>

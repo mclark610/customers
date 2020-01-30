@@ -95,7 +95,7 @@
                           </div>
                           <div class="card-body">
 
-                            <p class="card-text">This is a simple program demonstrating object oriented php, mysql, datatables, and boostrap 4.<br />
+                            <p class="card-text">This is a simple program demonstrating object oriented php, mysql, datatables, and bootstrap 4.<br />
                               It displays customers, dbl-click to see their transactions. Transactions shows all transactions and drills back to customers.
                               <br/>
                               login : guest@guest.com
