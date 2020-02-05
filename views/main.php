@@ -27,7 +27,7 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="<?php echo ROOT_URL; ?>">Customers</a>
+    <a id="customer" class="navbar-brand" href="<?php echo ROOT_URL; ?>">Customers</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -62,7 +62,7 @@
             <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL; ?>">Welcome <?php echo $_SESSION['user_data']['name']; ?></a></li>
             <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>/?controller=Users&action=logout">Logout</a></li>
         <?php else : ?>
-            <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>/?controller=Users&action=login">Login yo</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>/?controller=Users&action=login">Login</a></li>
         <?php endif; ?>
       </ul>
 
@@ -95,13 +95,15 @@
                           </div>
                           <div class="card-body">
 
-                            <p class="card-text">This is a simple program demonstrating object oriented php, mysql, datatables, and bootstrap 4.<br />
-                              It displays customers, dbl-click to see their transactions. Transactions shows all transactions and drills back to customers.
+                            <p class="card-text">This is a simple program demonstrating object oriented php, mysql, datatables, and bootstrap 4.</br>
+                                The purpose of this exercise is to show how to set up datatables and an MVC framework using OOP PHP and mysql on the backend.</br></br>
+
+                             It displays customers, dbl-click to see their transactions. Transactions shows all transactions and drills back to customers.
                               <br/>
                               login : guest@guest.com
                               passwd: guest01
                             </p>
-                            <a href="<?php echo ROOT_URL;?>/?controller=Users&action=login" class="btn btn-primary">Login yo</a></li>
+                            <a href="<?php echo ROOT_URL;?>/?controller=Users&action=login" class="btn btn-primary">Login</a></li>
                           </div>
                           <!-- TODO: file date of last time maintained? -->
                           <!--
