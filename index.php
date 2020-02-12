@@ -12,20 +12,25 @@ require("controllers/Transactions.php");
 require("controllers/Users.php");
 require("controllers/Tables.php");
 require("controllers/Metrics.php");
+require("controllers/Home.php");
 
 require("model/Customer.php");
 require("model/Transaction.php");
 require("model/Users.php");
 require("model/Tables.php");
 require("model/Metrics.php");
+require("model/Home.php");
 
 $bootstrap = new Bootstrap($_GET);
-#echo "bootstrap: " + var_dump($bootstrap);
+echo "BOOTSTRAP LOOK: ";
+ var_dump($bootstrap);
 
 $controller = $bootstrap->createController();
-#echo "controller: " + var_dump($controller);
+echo "BOOTSTRAP CONTROLLER LOOK: ";
+var_dump($controller);
 
 if ($controller) {
+	echo "BOOTSTRAP CONTROLLER EXECUTEACTION: ";
 	$controller->executeAction();
 }
 else {

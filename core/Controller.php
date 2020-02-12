@@ -19,7 +19,7 @@ abstract class Controller {
 
         $view = 'views/'.get_class($this).'/'.$this->action.'.php';
 
-	//			echo "Controller::view : " . $view ."<br/>";
+//				echo "Controller::view : " . $view ."<br/>";
 	//echo "<br/><br/>";
 
 	#if (!isset($this->request['controller'])|| ($this->request['controller'] == "")) {

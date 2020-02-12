@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Customers</title>
+    <!--
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -60,69 +63,23 @@
         <ul class="nav navbar-nav navbar-right">
         <?php if(isset($_SESSION['is_logged_in'])) : ?>
             <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL; ?>">Welcome <?php echo $_SESSION['user_data']['name']; ?></a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>/?controller=Users&action=logout">Logout</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>Users/logout">Logout</a></li>
         <?php else : ?>
             <li class="nav-item"><a class="nav-link" href="<?php echo ROOT_URL;?>/?controller=Users&action=login">Login</a></li>
         <?php endif; ?>
       </ul>
-
     </div>
   </nav>
 
   <div class="container">
+      <?php Messages::display(); ?>
+      <?php require($view); ?>
+ </div><!-- /.container -->
 
-<!--
-         <h2>Logged in: <?php echo isset($_SESSION['is_logged_in']) ?></h2>
-         <h2>REQUEST_URI:isset <?php echo isset($_SERVER['REQUEST_URI']) ?></h2>
-         <h2>REQUEST_URI:basename: <?php echo basename($_SERVER['REQUEST_URI']) ?></h2>
-         <h2>LOGIN TEST: <?php echo strpos($_SERVER['REQUEST_URI'],"login")?></h2>
-         <h2>VIEW: <?php echo $view?></h2>
--->
-         <!-- Logged in? Proceed -->
-         <?php if (isset($_SESSION['is_logged_in'])) :
-//              echo("<h3>is_logged_in</h3>");
-     	             require($view);
-                elseif(strpos($_SERVER['REQUEST_URI'],"login")):
-//                  echo("<h3>strpos called</h3>");
-                  require($view);
-                else:
-          ?>
-                    <div id="test2" class="card">
-                      <span class="border border-primary rounded">
-                        <div class="card text-center">
-                          <div class="card-header">
-                            Customers
-                          </div>
-                          <div class="card-body">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 
-                            <p class="card-text">This is a simple program demonstrating object oriented php, mysql, datatables, and bootstrap 4.</br>
-                                The purpose of this exercise is to show how to set up datatables and an MVC framework using OOP PHP and mysql on the backend.</br></br>
-
-                             It displays customers, dbl-click to see their transactions. Transactions shows all transactions and drills back to customers.
-                              <br/>
-                              login : guest@guest.com
-                              passwd: guest01
-                            </p>
-                            <a href="<?php echo ROOT_URL;?>/?controller=Users&action=login" class="btn btn-primary">Login</a></li>
-                          </div>
-                          <!-- TODO: file date of last time maintained? -->
-                          <!--
-                          <div class="card-footer text-muted">
-                            2 days ago
-                          </div>
-                        -->
-                        </div></span>
-                     </div>
-          <?php
-               endif;
-         ?>
-         </div>
-
-    </div><!-- /.container -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 </body>
 </html>

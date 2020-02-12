@@ -7,10 +7,10 @@ class CustomerModel extends Model {
 	  private $arrCust;
 
     public function Index() {
-		   // return $this->fetchCustomers();
+		    return $this->fetchCustomers();
     }
 
-  
+
     public function fetchCustomers( $limit=10 ) {
         $stmt = '';
 

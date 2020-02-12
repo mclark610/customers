@@ -11,13 +11,25 @@ class UserModel extends Model {
 
     	$password = md5($post['password']);
 
-    	if($post['submit']){
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:password:guest01 code " . md5($post['password']) . "\n",FILE_APPEND);
+
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:email: " . $post['email'] . "\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:password: " . $post['password'] . "\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:md5password: " . $password . "\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:post: " . $post . "\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::rooturl: ".ROOT_URL.  "\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::control/action: /?controller=Users&action=login\n",FILE_APPEND);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::post:submit: ".$post['submit']."\n",FILE_APPEND);
+
+        if($post['submit']){
+
     		// Compare Login
     		$this->query('SELECT * FROM users WHERE email = :email AND password = :password');
     		$this->bind(':email', $post['email']);
     		$this->bind(':password', $password);
 
     		$row = $this->single();
+            file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:row: " .$row . "\n",FILE_APPEND);
 
     		if($row){
     			$_SESSION['is_logged_in'] = true;
@@ -26,13 +38,14 @@ class UserModel extends Model {
     					"name"  => $row['name'],
     					"email" => $row['email']
     			);
+                file_put_contents($_SERVER['DOCUMENT_ROOT']."/log/test.log","UserModel::login:row2: " .$row . "\n",FILE_APPEND);
     			header('Location: '.ROOT_URL.'?Customers/index');
     		}
     		else {
     			Messages::setMsg('Incorrect Login', 'error');
     		}
     	}
-
+        return;
     }
 
 	public function logout() {
